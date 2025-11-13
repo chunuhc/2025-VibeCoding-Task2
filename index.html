@@ -114,6 +114,41 @@
       .section-about {
         background-color: #0e1521;
       }
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .about-text p {
+        margin-bottom: 1rem;
+      }
+      .about-skills {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .about-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .about-buttons a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #58a6ff;
+        color: #0d1117;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+      .about-buttons a:hover {
+        background-color: #1f6feb;
+      }
+      .about-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
       /* CSS:ABOUT-END */
 
       /* CSS:SKILLS-START */
@@ -142,14 +177,18 @@
         .section-hero .hero-title {
           font-size: 2.5rem;
         }
-        .section-about .container,
-        .section-projects .container {
-          display: flex;
+        .section-about .container {
+          flex-direction: row;
           align-items: center;
           gap: 2rem;
         }
-        .section-about img,
-        .section-projects img {
+        .about-content {
+          flex-direction: row;
+          gap: 2rem;
+          width: 100%;
+        }
+        .about-text,
+        .about-image {
           width: 50%;
         }
       }
@@ -177,16 +216,12 @@
           <div class="container">
             <h1 class="hero-title">這裡是個人網站的主視覺區（Hero 區）</h1>
             <img
-              src="https://source.unsplash.com/400x400/?developer,laptop"
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=crop&h=400&w=400"
               alt="在筆電前撰寫程式碼的前端開發者"
               loading="lazy"
             />
             <p>這裡會放一段簡短的自我介紹與核心職稱，例如「前端開發者」。</p>
             <p>也會有行動呼籲，例如「瀏覽作品集」或「下載履歷」。</p>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生正式文案與版面，再把整個
-              section 貼回來取代這一區。
-            </p>
           </div>
         </section>
         <!-- SECTION:HERO-END -->
@@ -197,20 +232,34 @@
           class="section section-about"
           aria-labelledby="about-heading"
         >
-          <div class="container">
-            <h2 id="about-heading" class="section-title">
-              關於我（之後會用 Section SDD 替換）
-            </h2>
-            <img
-              src="https://source.unsplash.com/600x400/?workspace,developer"
-              alt="在工作桌上使用筆電的開發者"
-              loading="lazy"
-            />
-            <p>這裡目前是 About 區的占位內容。</p>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
-              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
-            </p>
+          <div class="container about-content">
+            <div class="about-text">
+              <h2 id="about-heading" class="section-title">關於我</h2>
+              <p>
+                我現在是網頁設計師，主要擅長HTML/CSS切版、可以完成基礎的互動效果，也從事平面設計多年、熟悉繪圖軟體操作。
+              </p>
+              <p>
+                德明財經科技大學-多媒體設計系畢業、擅長整合行銷視覺與網頁設計的設計師。在工作中培養了獨立負責與快速適應的能力，也保持開朗與求知的心，喜歡嘗試新技術與設計趨勢。
+              </p>
+              <ul class="about-skills">
+                <li>UI視覺設計</li>
+                <li>HTML/CSS切版</li>
+                <li>
+                  繪圖軟體操作：ADOBE Photoshop、ADOBE Illustrator、Figma、Canva
+                </li>
+              </ul>
+              <div class="about-buttons">
+                <a href="#projects">查看作品集</a>
+                <a href="#contact">聯絡我</a>
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?crop=entropy&cs=tinysrgb&fit=crop&h=400&w=600"
+                alt="會寫程式的設計師正在工作"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
         <!-- SECTION:ABOUT-END -->
@@ -226,10 +275,6 @@
               技能（之後會用 Section SDD 替換）
             </h2>
             <p>這裡目前是 Skills 區的占位內容。</p>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
-              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
-            </p>
           </div>
         </section>
         <!-- SECTION:SKILLS-END -->
@@ -244,16 +289,6 @@
             <h2 id="projects-heading" class="section-title">
               作品集（之後會用 Section SDD 替換）
             </h2>
-            <img
-              src="https://source.unsplash.com/600x400/?code,project"
-              alt="電腦螢幕上展示程式專案"
-              loading="lazy"
-            />
-            <p>這裡目前是 Projects 區的占位內容。</p>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
-              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
-            </p>
           </div>
         </section>
         <!-- SECTION:PROJECTS-END -->
@@ -269,41 +304,6 @@
               聯絡我（之後會用 Section SDD 替換）
             </h2>
             <p>這裡目前是 Contact 區的占位內容。</p>
-            <p>可包含 Email、電話或社群連結：</p>
-            <ul>
-              <li>
-                <a href="mailto:hello@example.com" class="nav-link"
-                  >Email：hello@example.com</a
-                >
-              </li>
-              <li>
-                <a href="tel:+886900000000" class="nav-link"
-                  >電話：+886 900 000 000</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/yourname"
-                  class="nav-link"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/yourname"
-                  class="nav-link"
-                  target="_blank"
-                  rel="noopener"
-                  >LinkedIn</a
-                >
-              </li>
-            </ul>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section
-              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
-            </p>
           </div>
         </section>
         <!-- SECTION:CONTACT-END -->
